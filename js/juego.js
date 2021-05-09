@@ -9,6 +9,7 @@ class Juego {
         this.tablero=new Tablero(this.contexto);
         this.fichaSeleccionada=null;
         this.modoMoviendo=false;
+        this.jugadores=[];
        
     }
 
@@ -49,7 +50,7 @@ class Juego {
 
     comenzarJuego(){
 
-
+       
         this.tablero.drawMatrizEspacios();
     }
 
