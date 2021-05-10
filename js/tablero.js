@@ -5,8 +5,9 @@ class Tablero {
 
         this.contexto=contexto;      
         this.fichas=[];
-        this.matrizEspacios=[];
-
+        this.matrizEspacios=[[]];
+        this.col=6;
+        this.filas=8;
       
     
     }
@@ -15,9 +16,32 @@ class Tablero {
 
         // a cada ficha le digo que se dibuje
        
-       this.fichas.forEach(ficha => {
+      /*  this.fichas.forEach(ficha => {
            ficha.draw();           
-       });
+       }); */
+
+
+
+    }
+
+    inicializarMatriz(){
+        let x=0; let y=0; let posX=0;let posY=0;
+        for (let fila = 0; fila <600; fila+=100) {
+             let espacios=[y]; y=0;
+            for (let columna = 0; columna < 600; columna+=100) {
+                posX=fila+50;             
+                posY=columna+50;  
+                let nuevoEspacio=new EspacioTablero(posX,posY,40,this.contexto);
+
+                this.matrizEspacios[x][y]=nuevoEspacio;
+                nuevoEspacio.draw();
+                y++;
+           }
+           x++; 
+        }
+       
+
+
 
     }
 
@@ -39,9 +63,9 @@ class Tablero {
            // x + Math.floor(Math.random() * 150 + 1)), (y + i), 40, colour, canvas
         }
         
+        this.inicializarMatriz();
         
-        
-        for (let fila = 0; fila <800; fila+=100) {               
+       /*  for (let fila = 0; fila <800; fila+=100) {               
                 for (let col = 0; col <600 ; col+=100) {                   
                          x=fila+50;             
                          y=col+50;                          
@@ -56,7 +80,7 @@ class Tablero {
             }                  
                
 
-            }
+            } */
        // this.draw();    
 
     }
